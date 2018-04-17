@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * ModelWithTires
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T19:57:08.897+06:00")
+
 public class ModelWithTires {
   @SerializedName("make")
   private Make make = null;

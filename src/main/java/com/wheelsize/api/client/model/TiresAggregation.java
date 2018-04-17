@@ -30,7 +30,7 @@ import java.io.IOException;
  * Tire width, aspect ratio, and rim diameter values aggregated by all possible model modifications
  */
 @ApiModel(description = "Tire width, aspect ratio, and rim diameter values aggregated by all possible model modifications")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T19:57:08.897+06:00")
+
 public class TiresAggregation {
   @SerializedName("aspect_ratio")
   private Aggregation aspectRatio = null;

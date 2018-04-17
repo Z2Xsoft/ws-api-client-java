@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * WheelPair
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T19:57:08.897+06:00")
+
 public class WheelPair {
   @SerializedName("showing_fp_only")
   private Boolean showingFpOnly = null;

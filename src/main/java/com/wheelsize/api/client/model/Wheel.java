@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * Wheel
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T19:57:08.897+06:00")
+
 public class Wheel {
   @SerializedName("tire_pressure")
   private Pressure tirePressure = null;

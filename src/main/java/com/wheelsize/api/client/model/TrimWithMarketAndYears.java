@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * TrimWithMarketAndYears
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T19:57:08.897+06:00")
+
 public class TrimWithMarketAndYears {
   @SerializedName("trim")
   private String trim = null;

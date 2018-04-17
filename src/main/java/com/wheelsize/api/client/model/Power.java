@@ -29,7 +29,7 @@ import java.math.BigDecimal;
  * Power in different units (can be __*&#x60;null&#x60;*__)
  */
 @ApiModel(description = "Power in different units (can be __*`null`*__)")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-04-17T19:57:08.897+06:00")
+
 public class Power {
   @SerializedName("PS")
   private BigDecimal PS = null;
