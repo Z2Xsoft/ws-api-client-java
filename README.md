@@ -75,12 +75,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.wheelsize.api.client.*;
 import com.wheelsize.api.client.auth.*;
 import com.wheelsize.api.client.model.*;
-import com.wheelsize.api.client.api.BoltPatternsApi;
+import com.wheelsize.api.client.api.MakesApi;
 
 import java.io.File;
 import java.util.*;
 
-public class BoltPatternsApiExample {
+public class MakesApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -88,25 +88,14 @@ public class BoltPatternsApiExample {
         // Configure API key authorization: user_key
         ApiKeyAuth user_key = (ApiKeyAuth) defaultClient.getAuthentication("user_key");
         user_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //user_key.setApiKeyPrefix("Token");
 
-        BoltPatternsApi apiInstance = new BoltPatternsApi();
-        BigDecimal stud = new BigDecimal(); // BigDecimal | Number of stud holes (e.g. `5`)
-        BigDecimal studMin = new BigDecimal(); // BigDecimal | Lower bound for number of stud holes (e.g. `4`)
-        BigDecimal studMax = new BigDecimal(); // BigDecimal | Upper bound for number of stud holes (e.g. `7`)
-        BigDecimal pcd = new BigDecimal(); // BigDecimal | Pitch circle diameter, mm (e.g. `115`)
-        BigDecimal pcdMin = new BigDecimal(); // BigDecimal | Lower bound for pitch circle diameter, mm (e.g. `105`)
-        BigDecimal pcdMax = new BigDecimal(); // BigDecimal | Upper bound for pitch circle diameter, mm (e.g. `135`)
-        String brands = "brands_example"; // String | Show information only for specified manufacturers. Use _**`GET /makes/`**_ method to get the full list. (e.g. `mitsubishi,nissan,toyota`)
-        String brandsExclude = "brandsExclude_example"; // String | Don't show information for specified manufacturers. Use _**`GET /makes/`**_ method to get the full list. (e.g. `geely,great-wall`)
-        String countries = "countries_example"; // String | Show information for local manufacturers from specified countries only. Use _**`GET /countries/`**_ method to get the full list of countries. (e.g. `us,gb,jp`)
-        String countriesExclude = "countriesExclude_example"; // String | Don't show information for local manufacturers from specified countries. Use _**`GET /countries/`**_ method to get the full list of countries. (e.g. `ru,ua`)
+        MakesApi apiInstance = new MakesApi();
+        String countries = "us,gb,jp"; // String | Show information for local manufacturers from specified countries only. Use `GET /countries/` method to get the full list of countries. (e.g. `us,gb,jp`)
         try {
-            List<BoltPattern> result = apiInstance.boltPatternsList(stud, studMin, studMax, pcd, pcdMin, pcdMax, brands, brandsExclude, countries, countriesExclude);
+            List<Make> result = apiInstance.makesList(null, null, null, countries, null);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling BoltPatternsApi#boltPatternsList");
+            System.err.println("Exception when calling MakesApi#makesList");
             e.printStackTrace();
         }
     }
