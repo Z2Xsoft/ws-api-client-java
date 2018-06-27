@@ -17,6 +17,7 @@ import com.wheelsize.api.client.ApiException;
 import com.wheelsize.api.client.model.Country;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +46,7 @@ public class CountriesApiTest {
         List<Country> response = api.countriesList();
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
     }
     
 }

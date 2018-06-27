@@ -19,6 +19,7 @@ import com.wheelsize.api.client.model.MakeWithModels;
 import com.wheelsize.api.client.model.Vehicle;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,9 +45,9 @@ public class SearchApiTest {
      */
     @Test
     public void searchByHfTireListTest() throws ApiException {
-        BigDecimal tireDiameter = null;
-        BigDecimal tireSectionWidth = null;
-        BigDecimal rimDiameterHf = null;
+        BigDecimal tireDiameter = new BigDecimal(31);
+        BigDecimal tireSectionWidth = new BigDecimal(10.5);
+        BigDecimal rimDiameterHf = new BigDecimal(15);
         String lang = null;
         String brands = null;
         String brandsExclude = null;
@@ -55,6 +56,7 @@ public class SearchApiTest {
         List<MakeWithModels> response = api.searchByHfTireList(tireDiameter, tireSectionWidth, rimDiameterHf, lang, brands, brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
     }
     
     /**
@@ -67,15 +69,26 @@ public class SearchApiTest {
      */
     @Test
     public void searchByModelListTest() throws ApiException {
-        String make = null;
-        String model = null;
-        Integer year = null;
+        String make = "mitsubishi";
+        String model = "outlander";
+        Integer year = 2015;
         String trim = null;
         Boolean onlyOem = null;
         String lang = null;
-        List<Vehicle> response = api.searchByModelList(make, model, year, trim, onlyOem, lang);
+        List<Vehicle> response = api.searchByModelList(make, model, year, null, onlyOem, lang);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+
+        trim = "20-gg2w-iii-restyling";
+        // trim = response[0]["slug"];
+        assertNotNull(trim);
+
+        List<Vehicle> response2 = api.searchByModelList(make, model, year, trim, onlyOem, lang);
+
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
+
     }
     
     /**
@@ -88,10 +101,10 @@ public class SearchApiTest {
      */
     @Test
     public void searchByRimListTest() throws ApiException {
-        String boltPattern = null;
-        BigDecimal rimDiameter = null;
-        BigDecimal rimWidth = null;
-        BigDecimal offset = null;
+        String boltPattern = "5x100";
+        BigDecimal rimDiameter = new BigDecimal(16);
+        BigDecimal rimWidth = new BigDecimal(7);
+        BigDecimal offset = new BigDecimal(40);
         BigDecimal offsetMin = null;
         BigDecimal offsetMax = null;
         BigDecimal cb = null;
@@ -102,9 +115,13 @@ public class SearchApiTest {
         String brandsExclude = null;
         String countries = null;
         String countriesExclude = null;
-        List<MakeWithModels> response = api.searchByRimList(boltPattern, rimDiameter, rimWidth, offset, offsetMin, offsetMax, cb, cbMin, cbMax, lang, brands, brandsExclude, countries, countriesExclude);
+        List<MakeWithModels> response = api.searchByRimList(boltPattern, rimDiameter, rimWidth, null, offsetMin, offsetMax, cb, cbMin, cbMax, lang, brands, brandsExclude, countries, countriesExclude);
+        List<MakeWithModels> response2 = api.searchByRimList(boltPattern, rimDiameter, rimWidth, offset, offsetMin, offsetMax, cb, cbMin, cbMax, lang, brands, brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
     }
     
     /**
@@ -117,17 +134,21 @@ public class SearchApiTest {
      */
     @Test
     public void searchByTireListTest() throws ApiException {
-        BigDecimal tireWidth = null;
-        BigDecimal aspectRatio = null;
-        BigDecimal rimDiameter = null;
+        BigDecimal tireWidth = new BigDecimal(195);
+        BigDecimal aspectRatio = new BigDecimal(50);
+        BigDecimal rimDiameter = new BigDecimal(16);
         String lang = null;
         String brands = null;
         String brandsExclude = null;
         String countries = null;
         String countriesExclude = null;
         List<MakeWithModels> response = api.searchByTireList(tireWidth, aspectRatio, rimDiameter, lang, brands, brandsExclude, countries, countriesExclude);
+        List<MakeWithModels> response2 = api.searchByTireList(tireWidth, aspectRatio, rimDiameter, lang, "chevrolet", brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertEquals(response2.size(), 1);
     }
     
 }

@@ -19,6 +19,7 @@ import com.wheelsize.api.client.model.BoltPattern;
 import com.wheelsize.api.client.model.MakeWithModels;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +45,7 @@ public class BoltPatternsApiTest {
      */
     @Test
     public void boltPatternsListTest() throws ApiException {
-        BigDecimal stud = null;
+        BigDecimal stud = new BigDecimal(5);
         BigDecimal studMin = null;
         BigDecimal studMax = null;
         BigDecimal pcd = null;
@@ -54,9 +55,13 @@ public class BoltPatternsApiTest {
         String brandsExclude = null;
         String countries = null;
         String countriesExclude = null;
-        List<BoltPattern> response = api.boltPatternsList(stud, studMin, studMax, pcd, pcdMin, pcdMax, brands, brandsExclude, countries, countriesExclude);
+        List<BoltPattern> response = api.boltPatternsList(null, studMin, studMax, pcd, pcdMin, pcdMax, brands, brandsExclude, countries, countriesExclude);
+        List<BoltPattern> response2 = api.boltPatternsList(stud, studMin, studMax, pcd, pcdMin, pcdMax, brands, brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
     }
     
     /**
@@ -69,7 +74,7 @@ public class BoltPatternsApiTest {
      */
     @Test
     public void boltPatternsReadTest() throws ApiException {
-        String boltPattern = null;
+        String boltPattern = "5x105";
         BigDecimal rimDiameter = null;
         BigDecimal rimWidth = null;
         BigDecimal offset = null;
@@ -83,9 +88,19 @@ public class BoltPatternsApiTest {
         String brandsExclude = null;
         String countries = null;
         String countriesExclude = null;
-        List<MakeWithModels> response = api.boltPatternsRead(boltPattern, rimDiameter, rimWidth, offset, offsetMin, offsetMax, cb, cbMin, cbMax, lang, brands, brandsExclude, countries, countriesExclude);
+        List<MakeWithModels> response = api.boltPatternsRead(
+            boltPattern, rimDiameter, rimWidth, 
+            offset, offsetMin, offsetMax, cb, cbMin, cbMax, 
+            lang, brands, brandsExclude, countries, countriesExclude);
+        List<MakeWithModels> response2 = api.boltPatternsRead(
+            boltPattern, rimDiameter, rimWidth, 
+            offset, offsetMin, offsetMax, cb, cbMin, cbMax, 
+            lang, "chevrolet", brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
     }
     
 }

@@ -17,6 +17,7 @@ import com.wheelsize.api.client.ApiException;
 import com.wheelsize.api.client.model.Vehicle;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

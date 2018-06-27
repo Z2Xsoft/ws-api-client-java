@@ -17,6 +17,7 @@ import com.wheelsize.api.client.ApiException;
 import com.wheelsize.api.client.model.Trim;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,12 +43,13 @@ public class TrimsApiTest {
      */
     @Test
     public void trimsListTest() throws ApiException {
-        String make = null;
-        String model = null;
-        Integer year = null;
+        String make = "mitsubishi";
+        String model = "outlander";
+        Integer year = 2015;
         List<Trim> response = api.trimsList(make, model, year);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
     }
     
 }

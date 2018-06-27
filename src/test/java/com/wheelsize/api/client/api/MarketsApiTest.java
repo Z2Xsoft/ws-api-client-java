@@ -17,6 +17,7 @@ import com.wheelsize.api.client.ApiException;
 import com.wheelsize.api.client.model.Market;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,6 +47,15 @@ public class MarketsApiTest {
         List<Market> response = api.marketsList(lang);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
     }
-    
+
+    @Test
+    public void marketsChineseListTest() throws ApiException {
+        String lang = "zh-cn";
+        List<Market> response = api.marketsList(lang);
+
+        // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+    }    
 }

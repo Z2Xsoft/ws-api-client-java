@@ -17,6 +17,7 @@ import com.wheelsize.api.client.ApiException;
 import com.wheelsize.api.client.model.Year;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,11 +43,14 @@ public class YearsApiTest {
      */
     @Test
     public void yearsListTest() throws ApiException {
-        String make = null;
-        String model = null;
-        List<Year> response = api.yearsList(make, model);
+        String make = "mitsubishi";
+        List<Year> response = api.yearsList(make, null);
+        List<Year> response2 = api.yearsList(make, "outlander");
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
     }
     
 }

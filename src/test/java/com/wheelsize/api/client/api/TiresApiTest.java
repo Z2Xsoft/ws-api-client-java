@@ -19,6 +19,7 @@ import com.wheelsize.api.client.model.MakeWithModels;
 import com.wheelsize.api.client.model.Tire;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +45,7 @@ public class TiresApiTest {
      */
     @Test
     public void tiresListTest() throws ApiException {
-        BigDecimal width = null;
+        BigDecimal width = new BigDecimal(195);
         BigDecimal widthMin = null;
         BigDecimal widthMax = null;
         BigDecimal aspectRatio = null;
@@ -57,9 +58,13 @@ public class TiresApiTest {
         String brandsExclude = null;
         String countries = null;
         String countriesExclude = null;
-        List<Tire> response = api.tiresList(width, widthMin, widthMax, aspectRatio, aspectRatioMin, aspectRatioMax, rimDiameter, rimDiameterMin, rimDiameterMax, brands, brandsExclude, countries, countriesExclude);
+        List<Tire> response = api.tiresList(null, widthMin, widthMax, aspectRatio, aspectRatioMin, aspectRatioMax, rimDiameter, rimDiameterMin, rimDiameterMax, brands, brandsExclude, countries, countriesExclude);
+        List<Tire> response2 = api.tiresList(width, widthMin, widthMax, aspectRatio, aspectRatioMin, aspectRatioMax, rimDiameter, rimDiameterMin, rimDiameterMax, brands, brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
     }
     
     /**
@@ -72,7 +77,7 @@ public class TiresApiTest {
      */
     @Test
     public void tiresReadTest() throws ApiException {
-        String tire = null;
+        String tire = "195/50R15";
         BigDecimal width = null;
         BigDecimal widthMin = null;
         BigDecimal widthMax = null;
@@ -90,6 +95,7 @@ public class TiresApiTest {
         List<MakeWithModels> response = api.tiresRead(tire, width, widthMin, widthMax, aspectRatio, aspectRatioMin, aspectRatioMax, rimDiameter, rimDiameterMin, rimDiameterMax, lang, brands, brandsExclude, countries, countriesExclude);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
     }
     
 }

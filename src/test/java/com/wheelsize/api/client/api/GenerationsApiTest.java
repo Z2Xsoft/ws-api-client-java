@@ -17,6 +17,7 @@ import com.wheelsize.api.client.ApiException;
 import com.wheelsize.api.client.model.Generation;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,13 +43,14 @@ public class GenerationsApiTest {
      */
     @Test
     public void generationsListTest() throws ApiException {
-        String make = null;
-        String model = null;
+        String make = "mitsubishi";
+        String model = "outlander";
         Integer year = null;
         String lang = null;
         List<Generation> response = api.generationsList(make, model, year, lang);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
     }
     
 }

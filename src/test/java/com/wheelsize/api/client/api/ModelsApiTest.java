@@ -18,6 +18,7 @@ import com.wheelsize.api.client.model.Model;
 import com.wheelsize.api.client.model.ModelWithTires;
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,12 +44,15 @@ public class ModelsApiTest {
      */
     @Test
     public void modelsListTest() throws ApiException {
-        String make = null;
-        Integer year = null;
+        String make = "mitsubishi";
         String lang = null;
-        List<Model> response = api.modelsList(make, year, lang);
+        List<Model> response = api.modelsList(make, null, lang);
+        List<Model> response2 = api.modelsList(make, 2015, lang);
 
         // TODO: test validations
+        assertTrue("Response list should not be empty", response.size() > 0);
+        assertTrue("Filtered response list should not be empty", response2.size() > 0);
+        assertTrue(response2.size() < response.size());
     }
     
     /**
@@ -61,12 +65,14 @@ public class ModelsApiTest {
      */
     @Test
     public void modelsReadTest() throws ApiException {
-        String make = null;
-        String slug = null;
+        String make = "mitsubishi";
+        String slug = "outlander";
         String lang = null;
         ModelWithTires response = api.modelsRead(make, slug, lang);
 
         // TODO: test validations
+        assertNull(response.getYear());
+        assertTrue(response.getYears().size() > 0);
     }
     
     /**
@@ -79,13 +85,15 @@ public class ModelsApiTest {
      */
     @Test
     public void modelsReadYearTest() throws ApiException {
-        String make = null;
-        String slug = null;
-        Integer year = null;
+        String make = "mitsubishi";
+        String slug = "outlander";
+        Integer year = 2015;
         String lang = null;
         ModelWithTires response = api.modelsReadYear(make, slug, year, lang);
 
         // TODO: test validations
+        assertNotNull(response.getYear());
+        assertTrue(response.getYears().size() > 0);
     }
     
 }
