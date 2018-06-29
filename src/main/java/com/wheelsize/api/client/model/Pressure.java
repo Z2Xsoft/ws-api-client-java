@@ -49,7 +49,7 @@ public class Pressure {
    * Pressure, bar (e.g. &#x60;2.4&#x60;)
    * @return bar
   **/
-  @ApiModelProperty(required = true, value = "Pressure, bar (e.g. `2.4`)")
+  @ApiModelProperty(value = "Pressure, bar (e.g. `2.4`)")
   public BigDecimal getBar() {
     return bar;
   }
@@ -67,7 +67,7 @@ public class Pressure {
    * Pressure, psi (e.g. &#x60;35&#x60;)
    * @return psi
   **/
-  @ApiModelProperty(required = true, value = "Pressure, psi (e.g. `35`)")
+  @ApiModelProperty(value = "Pressure, psi (e.g. `35`)")
   public BigDecimal getPsi() {
     return psi;
   }
@@ -85,7 +85,7 @@ public class Pressure {
    * Pressure, kPa (e.g. &#x60;240&#x60;)
    * @return kPa
   **/
-  @ApiModelProperty(required = true, value = "Pressure, kPa (e.g. `240`)")
+  @ApiModelProperty(value = "Pressure, kPa (e.g. `240`)")
   public BigDecimal getKPa() {
     return kPa;
   }

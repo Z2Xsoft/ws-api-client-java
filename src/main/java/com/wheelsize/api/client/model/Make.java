@@ -47,7 +47,7 @@ public class Make {
    * Manufacturer slug name (e.g. &#x60;mitsubishi&#x60;)
    * @return slug
   **/
-  @ApiModelProperty(required = true, value = "Manufacturer slug name (e.g. `mitsubishi`)")
+  @ApiModelProperty(value = "Manufacturer slug name (e.g. `mitsubishi`)")
   public String getSlug() {
     return slug;
   }
@@ -65,7 +65,7 @@ public class Make {
    * Manufacturer name (e.g. &#x60;Mitsubishi&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Manufacturer name (e.g. `Mitsubishi`)")
+  @ApiModelProperty(value = "Manufacturer name (e.g. `Mitsubishi`)")
   public String getName() {
     return name;
   }
@@ -83,7 +83,7 @@ public class Make {
    *  Original english name. Use it along with _**&#x60;lang&#x60;**_ query parameter  
    * @return nameEn
   **/
-  @ApiModelProperty(required = true, value = " Original english name. Use it along with _**`lang`**_ query parameter  ")
+  @ApiModelProperty(value = " Original english name. Use it along with _**`lang`**_ query parameter  ")
   public String getNameEn() {
     return nameEn;
   }

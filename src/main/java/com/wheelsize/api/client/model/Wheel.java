@@ -203,7 +203,7 @@ public class Wheel {
    * Formatter rim size (e.g. &#x60;7Jx18 ET38&#x60;, can be __*&#x60;\&quot;\&quot;&#x60;*__)
    * @return rim
   **/
-  @ApiModelProperty(required = true, value = "Formatter rim size (e.g. `7Jx18 ET38`, can be __*`\"\"`*__)")
+  @ApiModelProperty(value = "Formatter rim size (e.g. `7Jx18 ET38`, can be __*`\"\"`*__)")
   public String getRim() {
     return rim;
   }
@@ -221,7 +221,7 @@ public class Wheel {
    * Rim diameter, in (e.g. &#x60;18.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return rimDiameter
   **/
-  @ApiModelProperty(required = true, value = "Rim diameter, in (e.g. `18.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Rim diameter, in (e.g. `18.0`, can be __*`null`*__)")
   public BigDecimal getRimDiameter() {
     return rimDiameter;
   }
@@ -239,7 +239,7 @@ public class Wheel {
    * Rim width, in (e.g. &#x60;7.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return rimWidth
   **/
-  @ApiModelProperty(required = true, value = "Rim width, in (e.g. `7.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Rim width, in (e.g. `7.0`, can be __*`null`*__)")
   public BigDecimal getRimWidth() {
     return rimWidth;
   }
@@ -257,7 +257,7 @@ public class Wheel {
    * Rim offset, mm (e.g. &#x60;38.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return rimOffset
   **/
-  @ApiModelProperty(required = true, value = "Rim offset, mm (e.g. `38.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Rim offset, mm (e.g. `38.0`, can be __*`null`*__)")
   public BigDecimal getRimOffset() {
     return rimOffset;
   }
@@ -275,7 +275,7 @@ public class Wheel {
    * Formatted tire size (e.g. &#x60;225/55R18&#x60;, can be __*&#x60;\&quot;\&quot;&#x60;*__)
    * @return tire
   **/
-  @ApiModelProperty(required = true, value = "Formatted tire size (e.g. `225/55R18`, can be __*`\"\"`*__)")
+  @ApiModelProperty(value = "Formatted tire size (e.g. `225/55R18`, can be __*`\"\"`*__)")
   public String getTire() {
     return tire;
   }
@@ -293,7 +293,7 @@ public class Wheel {
    * Tire sizing system (e.g. &#x60;metric&#x60;, can be __*&#x60;null&#x60;*__)
    * @return tireSizingSystem
   **/
-  @ApiModelProperty(required = true, value = "Tire sizing system (e.g. `metric`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Tire sizing system (e.g. `metric`, can be __*`null`*__)")
   public TireSizingSystemEnum getTireSizingSystem() {
     return tireSizingSystem;
   }
@@ -311,7 +311,7 @@ public class Wheel {
    * Tire constriction code (e.g. &#x60;R&#x60;, can be __*&#x60;null&#x60;*__)
    * @return tireConstruction
   **/
-  @ApiModelProperty(required = true, value = "Tire constriction code (e.g. `R`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Tire constriction code (e.g. `R`, can be __*`null`*__)")
   public TireConstructionEnum getTireConstruction() {
     return tireConstruction;
   }
@@ -329,7 +329,7 @@ public class Wheel {
    * Tire width, mm (e.g. &#x60;225.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return tireWidth
   **/
-  @ApiModelProperty(required = true, value = "Tire width, mm (e.g. `225.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Tire width, mm (e.g. `225.0`, can be __*`null`*__)")
   public BigDecimal getTireWidth() {
     return tireWidth;
   }
@@ -347,7 +347,7 @@ public class Wheel {
    * Aspect ratio, % (e.g. &#x60;55.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return tireAspectRatio
   **/
-  @ApiModelProperty(required = true, value = "Aspect ratio, % (e.g. `55.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Aspect ratio, % (e.g. `55.0`, can be __*`null`*__)")
   public BigDecimal getTireAspectRatio() {
     return tireAspectRatio;
   }
@@ -365,7 +365,7 @@ public class Wheel {
    * High flotation tire diameter, in (e.g. &#x60;31.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return tireDiameter
   **/
-  @ApiModelProperty(required = true, value = "High flotation tire diameter, in (e.g. `31.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "High flotation tire diameter, in (e.g. `31.0`, can be __*`null`*__)")
   public BigDecimal getTireDiameter() {
     return tireDiameter;
   }
@@ -383,7 +383,7 @@ public class Wheel {
    * High flotation section width, in (e.g. &#x60;10.5&#x60;, can be __*&#x60;null&#x60;*__)
    * @return tireSectionWidth
   **/
-  @ApiModelProperty(required = true, value = "High flotation section width, in (e.g. `10.5`, can be __*`null`*__)")
+  @ApiModelProperty(value = "High flotation section width, in (e.g. `10.5`, can be __*`null`*__)")
   public BigDecimal getTireSectionWidth() {
     return tireSectionWidth;
   }
@@ -401,7 +401,7 @@ public class Wheel {
    * Is an old tire with assumed aspect ratio 82%
    * @return tireIs82series
   **/
-  @ApiModelProperty(required = true, value = "Is an old tire with assumed aspect ratio 82%")
+  @ApiModelProperty(value = "Is an old tire with assumed aspect ratio 82%")
   public Boolean isTireIs82series() {
     return tireIs82series;
   }

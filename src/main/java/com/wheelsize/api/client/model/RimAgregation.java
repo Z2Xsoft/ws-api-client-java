@@ -49,7 +49,7 @@ public class RimAgregation {
    * Get diameter
    * @return diameter
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Aggregation getDiameter() {
     return diameter;
   }
@@ -67,7 +67,7 @@ public class RimAgregation {
    * Get offset
    * @return offset
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Aggregation getOffset() {
     return offset;
   }
@@ -85,7 +85,7 @@ public class RimAgregation {
    * Get width
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Aggregation getWidth() {
     return width;
   }

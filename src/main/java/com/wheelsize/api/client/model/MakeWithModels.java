@@ -37,7 +37,7 @@ public class MakeWithModels {
   private Make make = null;
 
   @SerializedName("models")
-  private List<ModelWithTrims> models = new ArrayList<ModelWithTrims>();
+  private List<ModelWithTrims> models = null;
 
   public MakeWithModels make(Make make) {
     this.make = make;
@@ -48,7 +48,7 @@ public class MakeWithModels {
    * Get make
    * @return make
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Make getMake() {
     return make;
   }
@@ -63,6 +63,9 @@ public class MakeWithModels {
   }
 
   public MakeWithModels addModelsItem(ModelWithTrims modelsItem) {
+    if (this.models == null) {
+      this.models = new ArrayList<ModelWithTrims>();
+    }
     this.models.add(modelsItem);
     return this;
   }
@@ -71,7 +74,7 @@ public class MakeWithModels {
    * Get models
    * @return models
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public List<ModelWithTrims> getModels() {
     return models;
   }

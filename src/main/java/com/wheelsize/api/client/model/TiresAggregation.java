@@ -53,7 +53,7 @@ public class TiresAggregation {
    * Get aspectRatio
    * @return aspectRatio
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Aggregation getAspectRatio() {
     return aspectRatio;
   }
@@ -71,7 +71,7 @@ public class TiresAggregation {
    * Get diameter
    * @return diameter
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Aggregation getDiameter() {
     return diameter;
   }
@@ -89,7 +89,7 @@ public class TiresAggregation {
    * Get width
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Aggregation getWidth() {
     return width;
   }
@@ -107,7 +107,7 @@ public class TiresAggregation {
    * Get tireSize
    * @return tireSize
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public SizeAggregation getTireSize() {
     return tireSize;
   }

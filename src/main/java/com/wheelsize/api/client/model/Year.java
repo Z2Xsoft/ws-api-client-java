@@ -44,7 +44,7 @@ public class Year {
    * Same as *&#x60;name&#x60;*. Aimed to match general for this API slug-name format
    * @return slug
   **/
-  @ApiModelProperty(required = true, value = "Same as *`name`*. Aimed to match general for this API slug-name format")
+  @ApiModelProperty(value = "Same as *`name`*. Aimed to match general for this API slug-name format")
   public Integer getSlug() {
     return slug;
   }
@@ -62,7 +62,7 @@ public class Year {
    * Year (e.g. &#x60;2015&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Year (e.g. `2015`)")
+  @ApiModelProperty(value = "Year (e.g. `2015`)")
   public Integer getName() {
     return name;
   }

@@ -39,7 +39,7 @@ public class TrimWithMarketAndYears {
   private Market market = null;
 
   @SerializedName("years")
-  private List<Integer> years = new ArrayList<Integer>();
+  private List<Integer> years = null;
 
   public TrimWithMarketAndYears trim(String trim) {
     this.trim = trim;
@@ -50,7 +50,7 @@ public class TrimWithMarketAndYears {
    * Trim name (e.g. &#x60;2.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return trim
   **/
-  @ApiModelProperty(required = true, value = "Trim name (e.g. `2.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Trim name (e.g. `2.0`, can be __*`null`*__)")
   public String getTrim() {
     return trim;
   }
@@ -68,7 +68,7 @@ public class TrimWithMarketAndYears {
    * Get market
    * @return market
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Market getMarket() {
     return market;
   }
@@ -83,6 +83,9 @@ public class TrimWithMarketAndYears {
   }
 
   public TrimWithMarketAndYears addYearsItem(Integer yearsItem) {
+    if (this.years == null) {
+      this.years = new ArrayList<Integer>();
+    }
     this.years.add(yearsItem);
     return this;
   }
@@ -91,7 +94,7 @@ public class TrimWithMarketAndYears {
    * Production years for these trim and market
    * @return years
   **/
-  @ApiModelProperty(required = true, value = "Production years for these trim and market")
+  @ApiModelProperty(value = "Production years for these trim and market")
   public List<Integer> getYears() {
     return years;
   }

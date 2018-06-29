@@ -72,7 +72,7 @@ public class Tire {
    * Tire section width, mm (e.g. &#x60;195&#x60;)
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "Tire section width, mm (e.g. `195`)")
+  @ApiModelProperty(value = "Tire section width, mm (e.g. `195`)")
   public Integer getWidth() {
     return width;
   }
@@ -90,7 +90,7 @@ public class Tire {
    * Tire aspect ratio, % (e.g. &#x60;55&#x60;)
    * @return aspectRatio
   **/
-  @ApiModelProperty(required = true, value = "Tire aspect ratio, % (e.g. `55`)")
+  @ApiModelProperty(value = "Tire aspect ratio, % (e.g. `55`)")
   public Integer getAspectRatio() {
     return aspectRatio;
   }
@@ -108,7 +108,7 @@ public class Tire {
    * Rim diameter, in (e.g. &#x60;16&#x60;)
    * @return rimDiameter
   **/
-  @ApiModelProperty(required = true, value = "Rim diameter, in (e.g. `16`)")
+  @ApiModelProperty(value = "Rim diameter, in (e.g. `16`)")
   public BigDecimal getRimDiameter() {
     return rimDiameter;
   }
@@ -126,7 +126,7 @@ public class Tire {
    * Number of vehicles matching tire size
    * @return count
   **/
-  @ApiModelProperty(required = true, value = "Number of vehicles matching tire size")
+  @ApiModelProperty(value = "Number of vehicles matching tire size")
   public Integer getCount() {
     return count;
   }

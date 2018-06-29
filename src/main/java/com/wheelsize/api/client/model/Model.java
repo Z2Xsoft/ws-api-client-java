@@ -47,7 +47,7 @@ public class Model {
    * Model slug name (e.g. &#x60;outlander&#x60;)
    * @return slug
   **/
-  @ApiModelProperty(required = true, value = "Model slug name (e.g. `outlander`)")
+  @ApiModelProperty(value = "Model slug name (e.g. `outlander`)")
   public String getSlug() {
     return slug;
   }
@@ -65,7 +65,7 @@ public class Model {
    * Model name (e.g. &#x60;Outlander&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Model name (e.g. `Outlander`)")
+  @ApiModelProperty(value = "Model name (e.g. `Outlander`)")
   public String getName() {
     return name;
   }
@@ -83,7 +83,7 @@ public class Model {
    *  Original english name. Use it along with _**&#x60;lang&#x60;**_ query parameter  
    * @return nameEn
   **/
-  @ApiModelProperty(required = true, value = " Original english name. Use it along with _**`lang`**_ query parameter  ")
+  @ApiModelProperty(value = " Original english name. Use it along with _**`lang`**_ query parameter  ")
   public String getNameEn() {
     return nameEn;
   }

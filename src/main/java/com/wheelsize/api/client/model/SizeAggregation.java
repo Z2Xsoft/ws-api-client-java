@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.math.BigDecimal;
 
 /**
  * SizeAggregation
@@ -31,12 +30,12 @@ import java.math.BigDecimal;
 
 public class SizeAggregation {
   @SerializedName("min")
-  private BigDecimal min = null;
+  private String min = null;
 
   @SerializedName("max")
-  private BigDecimal max = null;
+  private String max = null;
 
-  public SizeAggregation min(BigDecimal min) {
+  public SizeAggregation min(String min) {
     this.min = min;
     return this;
   }
@@ -45,16 +44,16 @@ public class SizeAggregation {
    * Size combined from minimum *&#x60;width&#x60;*, *&#x60;aspect_ratio&#x60;* and *&#x60;diameter&#x60;*
    * @return min
   **/
-  @ApiModelProperty(required = true, value = "Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*")
-  public BigDecimal getMin() {
+  @ApiModelProperty(value = "Size combined from minimum *`width`*, *`aspect_ratio`* and *`diameter`*")
+  public String getMin() {
     return min;
   }
 
-  public void setMin(BigDecimal min) {
+  public void setMin(String min) {
     this.min = min;
   }
 
-  public SizeAggregation max(BigDecimal max) {
+  public SizeAggregation max(String max) {
     this.max = max;
     return this;
   }
@@ -63,12 +62,12 @@ public class SizeAggregation {
    * Size combined from maximum *&#x60;width&#x60;*, *&#x60;aspect_ratio&#x60;* and *&#x60;diameter&#x60;*
    * @return max
   **/
-  @ApiModelProperty(required = true, value = "Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*")
-  public BigDecimal getMax() {
+  @ApiModelProperty(value = "Size combined from maximum *`width`*, *`aspect_ratio`* and *`diameter`*")
+  public String getMax() {
     return max;
   }
 
-  public void setMax(BigDecimal max) {
+  public void setMax(String max) {
     this.max = max;
   }
 

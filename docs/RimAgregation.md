@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**diameter** | [**Aggregation**](Aggregation.md) |  | 
-**offset** | [**Aggregation**](Aggregation.md) |  | 
-**width** | [**Aggregation**](Aggregation.md) |  | 
+**diameter** | [**Aggregation**](Aggregation.md) |  |  [optional]
+**offset** | [**Aggregation**](Aggregation.md) |  |  [optional]
+**width** | [**Aggregation**](Aggregation.md) |  |  [optional]
 
 
 

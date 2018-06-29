@@ -45,6 +45,9 @@ public class Vehicle {
   @SerializedName("trim")
   private String trim = null;
 
+  @SerializedName("slug")
+  private String slug = null;
+
   @SerializedName("generation")
   private Generation generation = null;
 
@@ -107,81 +110,17 @@ public class Vehicle {
   @SerializedName("lock_type")
   private LockTypeEnum lockType = null;
 
-  /**
-   * Lock thread size (e.g. &#x60;M12 x 1.25&#x60;, can be __*&#x60;null&#x60;*__)
-   */
-  @JsonAdapter(LockTextEnum.Adapter.class)
-  public enum LockTextEnum {
-    M10_X_1_25("M10 x 1.25"),
-    
-    M12_X_1_25("M12 x 1.25"),
-    
-    M12_X_1_5("M12 x 1.5"),
-    
-    M12_X_1_75("M12 x 1.75"),
-    
-    M14_X_1_25("M14 x 1.25"),
-    
-    M14_X_1_5("M14 x 1.5"),
-    
-    M14_X_2_0("M14 x 2.0"),
-    
-    M16_X_1_5("M16 x 1.5"),
-    
-    _3_8_24_UNF("3/8\\\" - 24 UNF"),
-    
-    _7_16_20_UNF("7/16\\\" - 20 UNF"),
-    
-    _1_2_20_UNF("1/2\\\" - 20 UNF"),
-    
-    _9_16_18_UNF("9/16\\\" - 18 UNF");
-
-    private String value;
-
-    LockTextEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static LockTextEnum fromValue(String text) {
-      for (LockTextEnum b : LockTextEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<LockTextEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final LockTextEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public LockTextEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return LockTextEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
   @SerializedName("lock_text")
-  private LockTextEnum lockText = null;
+  private String lockText = null;
 
   @SerializedName("bolt_pattern")
   private String boltPattern = null;
 
   @SerializedName("power")
   private Power power = null;
+
+  @SerializedName("engine_type")
+  private String engineType = null;
 
   @SerializedName("fuel")
   private String fuel = null;
@@ -198,7 +137,7 @@ public class Vehicle {
    * Get market
    * @return market
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Market getMarket() {
     return market;
   }
@@ -216,7 +155,7 @@ public class Vehicle {
    * Body name. Used extensively for JDM market (e.g. &#x60;GG2W&#x60;, can be __*&#x60;null&#x60;*__)
    * @return body
   **/
-  @ApiModelProperty(required = true, value = "Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)")
   public String getBody() {
     return body;
   }
@@ -234,13 +173,31 @@ public class Vehicle {
    * Trim name. It can be empty for models created for JDM market (e.g. &#x60;2.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return trim
   **/
-  @ApiModelProperty(required = true, value = "Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)")
   public String getTrim() {
     return trim;
   }
 
   public void setTrim(String trim) {
     this.trim = trim;
+  }
+
+  public Vehicle slug(String slug) {
+    this.slug = slug;
+    return this;
+  }
+
+   /**
+   * Combined trim, body, and generation identifier. Non-unique through markets (e.g. &#x60;20-gg2w-iii-restyling&#x60;)
+   * @return slug
+  **/
+  @ApiModelProperty(value = "Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)")
+  public String getSlug() {
+    return slug;
+  }
+
+  public void setSlug(String slug) {
+    this.slug = slug;
   }
 
   public Vehicle generation(Generation generation) {
@@ -252,7 +209,7 @@ public class Vehicle {
    * Get generation
    * @return generation
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Generation getGeneration() {
     return generation;
   }
@@ -270,7 +227,7 @@ public class Vehicle {
    * Number of stud holes (e.g. &#x60;5&#x60;, can be __*&#x60;null&#x60;*__)
    * @return studHoles
   **/
-  @ApiModelProperty(required = true, value = "Number of stud holes (e.g. `5`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Number of stud holes (e.g. `5`, can be __*`null`*__)")
   public Integer getStudHoles() {
     return studHoles;
   }
@@ -288,7 +245,7 @@ public class Vehicle {
    * Pitch circle diameter, mm (e.g. &#x60;105&#x60;, can be __*&#x60;null&#x60;*__)
    * @return pcd
   **/
-  @ApiModelProperty(required = true, value = "Pitch circle diameter, mm (e.g. `105`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Pitch circle diameter, mm (e.g. `105`, can be __*`null`*__)")
   public BigDecimal getPcd() {
     return pcd;
   }
@@ -306,7 +263,7 @@ public class Vehicle {
    * Centre bore diameter, mm (e.g. &#x60;48.1&#x60;, can be __*&#x60;null&#x60;*__)
    * @return centreBore
   **/
-  @ApiModelProperty(required = true, value = "Centre bore diameter, mm (e.g. `48.1`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Centre bore diameter, mm (e.g. `48.1`, can be __*`null`*__)")
   public BigDecimal getCentreBore() {
     return centreBore;
   }
@@ -333,7 +290,7 @@ public class Vehicle {
     this.lockType = lockType;
   }
 
-  public Vehicle lockText(LockTextEnum lockText) {
+  public Vehicle lockText(String lockText) {
     this.lockText = lockText;
     return this;
   }
@@ -342,12 +299,12 @@ public class Vehicle {
    * Lock thread size (e.g. &#x60;M12 x 1.25&#x60;, can be __*&#x60;null&#x60;*__)
    * @return lockText
   **/
-  @ApiModelProperty(required = true, value = "Lock thread size (e.g. `M12 x 1.25`, can be __*`null`*__)")
-  public LockTextEnum getLockText() {
+  @ApiModelProperty(value = "Lock thread size (e.g. `M12 x 1.25`, can be __*`null`*__)")
+  public String getLockText() {
     return lockText;
   }
 
-  public void setLockText(LockTextEnum lockText) {
+  public void setLockText(String lockText) {
     this.lockText = lockText;
   }
 
@@ -360,7 +317,7 @@ public class Vehicle {
    * Bolt pattern (e.g. &#x60;5x105&#x60;, can be __*&#x60;N/A&#x60;*__)
    * @return boltPattern
   **/
-  @ApiModelProperty(required = true, value = "Bolt pattern (e.g. `5x105`, can be __*`N/A`*__)")
+  @ApiModelProperty(value = "Bolt pattern (e.g. `5x105`, can be __*`N/A`*__)")
   public String getBoltPattern() {
     return boltPattern;
   }
@@ -385,6 +342,24 @@ public class Vehicle {
 
   public void setPower(Power power) {
     this.power = power;
+  }
+
+  public Vehicle engineType(String engineType) {
+    this.engineType = engineType;
+    return this;
+  }
+
+   /**
+   * Engine type (e.g. &#x60;V8&#x60;, can be __*&#x60;null&#x60;*__)
+   * @return engineType
+  **/
+  @ApiModelProperty(value = "Engine type (e.g. `V8`, can be __*`null`*__)")
+  public String getEngineType() {
+    return engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
   }
 
   public Vehicle fuel(String fuel) {
@@ -444,6 +419,7 @@ public class Vehicle {
     return Objects.equals(this.market, vehicle.market) &&
         Objects.equals(this.body, vehicle.body) &&
         Objects.equals(this.trim, vehicle.trim) &&
+        Objects.equals(this.slug, vehicle.slug) &&
         Objects.equals(this.generation, vehicle.generation) &&
         Objects.equals(this.studHoles, vehicle.studHoles) &&
         Objects.equals(this.pcd, vehicle.pcd) &&
@@ -452,13 +428,14 @@ public class Vehicle {
         Objects.equals(this.lockText, vehicle.lockText) &&
         Objects.equals(this.boltPattern, vehicle.boltPattern) &&
         Objects.equals(this.power, vehicle.power) &&
+        Objects.equals(this.engineType, vehicle.engineType) &&
         Objects.equals(this.fuel, vehicle.fuel) &&
         Objects.equals(this.wheels, vehicle.wheels);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(market, body, trim, generation, studHoles, pcd, centreBore, lockType, lockText, boltPattern, power, fuel, wheels);
+    return Objects.hash(market, body, trim, slug, generation, studHoles, pcd, centreBore, lockType, lockText, boltPattern, power, engineType, fuel, wheels);
   }
 
 
@@ -470,6 +447,7 @@ public class Vehicle {
     sb.append("    market: ").append(toIndentedString(market)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    trim: ").append(toIndentedString(trim)).append("\n");
+    sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
     sb.append("    generation: ").append(toIndentedString(generation)).append("\n");
     sb.append("    studHoles: ").append(toIndentedString(studHoles)).append("\n");
     sb.append("    pcd: ").append(toIndentedString(pcd)).append("\n");
@@ -478,6 +456,7 @@ public class Vehicle {
     sb.append("    lockText: ").append(toIndentedString(lockText)).append("\n");
     sb.append("    boltPattern: ").append(toIndentedString(boltPattern)).append("\n");
     sb.append("    power: ").append(toIndentedString(power)).append("\n");
+    sb.append("    engineType: ").append(toIndentedString(engineType)).append("\n");
     sb.append("    fuel: ").append(toIndentedString(fuel)).append("\n");
     sb.append("    wheels: ").append(toIndentedString(wheels)).append("\n");
     sb.append("}");

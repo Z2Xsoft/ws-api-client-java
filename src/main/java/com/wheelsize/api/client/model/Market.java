@@ -50,7 +50,7 @@ public class Market {
    * Market slug name (e.g. &#x60;eudm&#x60;)
    * @return slug
   **/
-  @ApiModelProperty(required = true, value = "Market slug name (e.g. `eudm`)")
+  @ApiModelProperty(value = "Market slug name (e.g. `eudm`)")
   public String getSlug() {
     return slug;
   }
@@ -68,7 +68,7 @@ public class Market {
    * Market abbreviation (e.g. &#x60;EUDM&#x60;)
    * @return abbr
   **/
-  @ApiModelProperty(required = true, value = "Market abbreviation (e.g. `EUDM`)")
+  @ApiModelProperty(value = "Market abbreviation (e.g. `EUDM`)")
   public String getAbbr() {
     return abbr;
   }
@@ -86,7 +86,7 @@ public class Market {
    * Market name (e.g. &#x60;European domestic market&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Market name (e.g. `European domestic market`)")
+  @ApiModelProperty(value = "Market name (e.g. `European domestic market`)")
   public String getName() {
     return name;
   }
@@ -104,7 +104,7 @@ public class Market {
    *  Original english name. Use it along with _**&#x60;lang&#x60;**_ query parameter  
    * @return nameEn
   **/
-  @ApiModelProperty(required = true, value = " Original english name. Use it along with _**`lang`**_ query parameter  ")
+  @ApiModelProperty(value = " Original english name. Use it along with _**`lang`**_ query parameter  ")
   public String getNameEn() {
     return nameEn;
   }

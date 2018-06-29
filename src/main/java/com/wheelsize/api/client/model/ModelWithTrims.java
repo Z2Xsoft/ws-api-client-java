@@ -45,7 +45,7 @@ public class ModelWithTrims {
   private String endYear = null;
 
   @SerializedName("vehicles")
-  private List<TrimWithMarketAndYears> vehicles = new ArrayList<TrimWithMarketAndYears>();
+  private List<TrimWithMarketAndYears> vehicles = null;
 
   public ModelWithTrims slug(String slug) {
     this.slug = slug;
@@ -56,7 +56,7 @@ public class ModelWithTrims {
    * Model name (e.g. &#x60;Outlander&#x60;)
    * @return slug
   **/
-  @ApiModelProperty(required = true, value = "Model name (e.g. `Outlander`)")
+  @ApiModelProperty(value = "Model name (e.g. `Outlander`)")
   public String getSlug() {
     return slug;
   }
@@ -74,7 +74,7 @@ public class ModelWithTrims {
    * Model slug name (e.g. &#x60;outlander&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Model slug name (e.g. `outlander`)")
+  @ApiModelProperty(value = "Model slug name (e.g. `outlander`)")
   public String getName() {
     return name;
   }
@@ -92,7 +92,7 @@ public class ModelWithTrims {
    * Model production start year. It should be &#39;integer&#39; but it is used as &#39;string&#39; by historical reasons.
    * @return startYear
   **/
-  @ApiModelProperty(required = true, value = "Model production start year. It should be 'integer' but it is used as 'string' by historical reasons.")
+  @ApiModelProperty(value = "Model production start year. It should be 'integer' but it is used as 'string' by historical reasons.")
   public String getStartYear() {
     return startYear;
   }
@@ -110,7 +110,7 @@ public class ModelWithTrims {
    * Model production end year. It should be &#39;integer&#39; but it is used as &#39;string&#39; by  historical reasons.  It equals to the __*&#x60;current year + 1&#x60;*__ if it is still in production.
    * @return endYear
   **/
-  @ApiModelProperty(required = true, value = "Model production end year. It should be 'integer' but it is used as 'string' by  historical reasons.  It equals to the __*`current year + 1`*__ if it is still in production.")
+  @ApiModelProperty(value = "Model production end year. It should be 'integer' but it is used as 'string' by  historical reasons.  It equals to the __*`current year + 1`*__ if it is still in production.")
   public String getEndYear() {
     return endYear;
   }
@@ -125,6 +125,9 @@ public class ModelWithTrims {
   }
 
   public ModelWithTrims addVehiclesItem(TrimWithMarketAndYears vehiclesItem) {
+    if (this.vehicles == null) {
+      this.vehicles = new ArrayList<TrimWithMarketAndYears>();
+    }
     this.vehicles.add(vehiclesItem);
     return this;
   }
@@ -133,7 +136,7 @@ public class ModelWithTrims {
    * Get vehicles
    * @return vehicles
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public List<TrimWithMarketAndYears> getVehicles() {
     return vehicles;
   }

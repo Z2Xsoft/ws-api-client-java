@@ -44,7 +44,7 @@ public class Country {
    * Country code (e.g. &#x60;JP&#x60;)
    * @return slug
   **/
-  @ApiModelProperty(required = true, value = "Country code (e.g. `JP`)")
+  @ApiModelProperty(value = "Country code (e.g. `JP`)")
   public String getSlug() {
     return slug;
   }
@@ -62,7 +62,7 @@ public class Country {
    * Country (e.g. &#x60;Japan&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Country (e.g. `Japan`)")
+  @ApiModelProperty(value = "Country (e.g. `Japan`)")
   public String getName() {
     return name;
   }

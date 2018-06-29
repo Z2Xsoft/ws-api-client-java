@@ -49,7 +49,7 @@ public class Power {
    * Power, PS (e.g. &#x60;169&#x60;)
    * @return PS
   **/
-  @ApiModelProperty(required = true, value = "Power, PS (e.g. `169`)")
+  @ApiModelProperty(value = "Power, PS (e.g. `169`)")
   public BigDecimal getPS() {
     return PS;
   }
@@ -67,7 +67,7 @@ public class Power {
    * Power, hp (e.g. &#x60;166&#x60;)
    * @return hp
   **/
-  @ApiModelProperty(required = true, value = "Power, hp (e.g. `166`)")
+  @ApiModelProperty(value = "Power, hp (e.g. `166`)")
   public BigDecimal getHp() {
     return hp;
   }
@@ -85,7 +85,7 @@ public class Power {
    * Power, kW (e.g. &#x60;124&#x60;)
    * @return kW
   **/
-  @ApiModelProperty(required = true, value = "Power, kW (e.g. `124`)")
+  @ApiModelProperty(value = "Power, kW (e.g. `124`)")
   public BigDecimal getKW() {
     return kW;
   }

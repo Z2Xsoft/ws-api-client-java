@@ -51,7 +51,7 @@ public class ModelWithTires {
   private List<Integer> years = null;
 
   @SerializedName("generations")
-  private List<Generation> generations = new ArrayList<Generation>();
+  private List<Generation> generations = null;
 
   @SerializedName("tires")
   private TiresAggregation tires = null;
@@ -68,7 +68,7 @@ public class ModelWithTires {
    * Get make
    * @return make
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Make getMake() {
     return make;
   }
@@ -86,7 +86,7 @@ public class ModelWithTires {
    * Get model
    * @return model
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Model getModel() {
     return model;
   }
@@ -104,7 +104,7 @@ public class ModelWithTires {
    * Selected year (e.g. &#x60;2015&#x60;, can be __*&#x60;null&#x60;*__)
    * @return year
   **/
-  @ApiModelProperty(required = true, value = "Selected year (e.g. `2015`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Selected year (e.g. `2015`, can be __*`null`*__)")
   public Integer getYear() {
     return year;
   }
@@ -145,6 +145,9 @@ public class ModelWithTires {
   }
 
   public ModelWithTires addGenerationsItem(Generation generationsItem) {
+    if (this.generations == null) {
+      this.generations = new ArrayList<Generation>();
+    }
     this.generations.add(generationsItem);
     return this;
   }
@@ -153,7 +156,7 @@ public class ModelWithTires {
    * Get generations
    * @return generations
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public List<Generation> getGenerations() {
     return generations;
   }

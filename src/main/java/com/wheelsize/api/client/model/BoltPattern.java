@@ -69,7 +69,7 @@ public class BoltPattern {
    * Stud holes number (e.g. &#x60;5&#x60;)
    * @return stud
   **/
-  @ApiModelProperty(required = true, value = "Stud holes number (e.g. `5`)")
+  @ApiModelProperty(value = "Stud holes number (e.g. `5`)")
   public Integer getStud() {
     return stud;
   }
@@ -87,7 +87,7 @@ public class BoltPattern {
    * Pitch circle diameter, mm (e.g. &#x60;105&#x60;)
    * @return pcd
   **/
-  @ApiModelProperty(required = true, value = "Pitch circle diameter, mm (e.g. `105`)")
+  @ApiModelProperty(value = "Pitch circle diameter, mm (e.g. `105`)")
   public BigDecimal getPcd() {
     return pcd;
   }
@@ -105,7 +105,7 @@ public class BoltPattern {
    * Number of vehicles matching bolt pattern
    * @return count
   **/
-  @ApiModelProperty(required = true, value = "Number of vehicles matching bolt pattern")
+  @ApiModelProperty(value = "Number of vehicles matching bolt pattern")
   public Integer getCount() {
     return count;
   }

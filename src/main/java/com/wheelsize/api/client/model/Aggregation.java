@@ -48,7 +48,7 @@ public class Aggregation {
    * Min aggregated value
    * @return min
   **/
-  @ApiModelProperty(required = true, value = "Min aggregated value")
+  @ApiModelProperty(value = "Min aggregated value")
   public BigDecimal getMin() {
     return min;
   }
@@ -66,7 +66,7 @@ public class Aggregation {
    * Max aggregated value
    * @return max
   **/
-  @ApiModelProperty(required = true, value = "Max aggregated value")
+  @ApiModelProperty(value = "Max aggregated value")
   public BigDecimal getMax() {
     return max;
   }
@@ -84,7 +84,7 @@ public class Aggregation {
    * One of &#x60;mm, in, %&#x60;
    * @return units
   **/
-  @ApiModelProperty(required = true, value = "One of `mm, in, %`")
+  @ApiModelProperty(value = "One of `mm, in, %`")
   public String getUnits() {
     return units;
   }

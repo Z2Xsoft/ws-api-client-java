@@ -20,9 +20,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.wheelsize.api.client.model.Market;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Trim
@@ -44,16 +47,25 @@ public class Trim {
   @SerializedName("generation")
   private String generation = null;
 
+  @SerializedName("production_start_year")
+  private Integer productionStartYear = null;
+
+  @SerializedName("production_end_year")
+  private Integer productionEndYear = null;
+
+  @SerializedName("markets")
+  private List<Market> markets = null;
+
   public Trim slug(String slug) {
     this.slug = slug;
     return this;
   }
 
    /**
-   * Combines trim and body name. Format: __*&#x60;trim+body&#x60;*__ if both values provided, otherwise non-empty of them. (e.g. &#x60;2.0+GG2W&#x60;)
+   * Combined trim, body, and generation identifier. Non-unique through markets (e.g. &#x60;20-gg2w-iii-restyling&#x60;)
    * @return slug
   **/
-  @ApiModelProperty(value = "Combines trim and body name. Format: __*`trim+body`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0+GG2W`)")
+  @ApiModelProperty(value = "Combined trim, body, and generation identifier. Non-unique through markets (e.g. `20-gg2w-iii-restyling`)")
   public String getSlug() {
     return slug;
   }
@@ -68,10 +80,10 @@ public class Trim {
   }
 
    /**
-   * Format: __*&#x60;trim (body)&#x60;*__ if both values provided, otherwise non-empty of them. (e.g. &#x60;2.0 (GG2W)&#x60;)
+   * Format: __*&#x60;trim (body) [generation]&#x60;*__ (e.g. &#x60;2.0 (GG2W) [III Restyling]&#x60;)
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Format: __*`trim (body)`*__ if both values provided, otherwise non-empty of them. (e.g. `2.0 (GG2W)`)")
+  @ApiModelProperty(value = "Format: __*`trim (body) [generation]`*__ (e.g. `2.0 (GG2W) [III Restyling]`)")
   public String getName() {
     return name;
   }
@@ -89,7 +101,7 @@ public class Trim {
    * Trim name. It can be empty for models created for JDM market (e.g. &#x60;2.0&#x60;, can be __*&#x60;null&#x60;*__)
    * @return trim
   **/
-  @ApiModelProperty(required = true, value = "Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Trim name. It can be empty for models created for JDM market (e.g. `2.0`, can be __*`null`*__)")
   public String getTrim() {
     return trim;
   }
@@ -107,7 +119,7 @@ public class Trim {
    * Body name. Used extensively for JDM market (e.g. &#x60;GG2W&#x60;, can be __*&#x60;null&#x60;*__)
    * @return body
   **/
-  @ApiModelProperty(required = true, value = "Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)")
+  @ApiModelProperty(value = "Body name. Used extensively for JDM market (e.g. `GG2W`, can be __*`null`*__)")
   public String getBody() {
     return body;
   }
@@ -134,6 +146,68 @@ public class Trim {
     this.generation = generation;
   }
 
+  public Trim productionStartYear(Integer productionStartYear) {
+    this.productionStartYear = productionStartYear;
+    return this;
+  }
+
+   /**
+   * Trim production start year (e.g. &#x60;2015&#x60;, can be __*&#x60;null&#x60;*__)
+   * @return productionStartYear
+  **/
+  @ApiModelProperty(value = "Trim production start year (e.g. `2015`, can be __*`null`*__)")
+  public Integer getProductionStartYear() {
+    return productionStartYear;
+  }
+
+  public void setProductionStartYear(Integer productionStartYear) {
+    this.productionStartYear = productionStartYear;
+  }
+
+  public Trim productionEndYear(Integer productionEndYear) {
+    this.productionEndYear = productionEndYear;
+    return this;
+  }
+
+   /**
+   * Trim production end year (e.g. &#x60;2016&#x60;, can be __*&#x60;null&#x60;*__)
+   * @return productionEndYear
+  **/
+  @ApiModelProperty(value = "Trim production end year (e.g. `2016`, can be __*`null`*__)")
+  public Integer getProductionEndYear() {
+    return productionEndYear;
+  }
+
+  public void setProductionEndYear(Integer productionEndYear) {
+    this.productionEndYear = productionEndYear;
+  }
+
+  public Trim markets(List<Market> markets) {
+    this.markets = markets;
+    return this;
+  }
+
+  public Trim addMarketsItem(Market marketsItem) {
+    if (this.markets == null) {
+      this.markets = new ArrayList<Market>();
+    }
+    this.markets.add(marketsItem);
+    return this;
+  }
+
+   /**
+   * List of markets where this trim if present
+   * @return markets
+  **/
+  @ApiModelProperty(value = "List of markets where this trim if present")
+  public List<Market> getMarkets() {
+    return markets;
+  }
+
+  public void setMarkets(List<Market> markets) {
+    this.markets = markets;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +222,15 @@ public class Trim {
         Objects.equals(this.name, trim.name) &&
         Objects.equals(this.trim, trim.trim) &&
         Objects.equals(this.body, trim.body) &&
-        Objects.equals(this.generation, trim.generation);
+        Objects.equals(this.generation, trim.generation) &&
+        Objects.equals(this.productionStartYear, trim.productionStartYear) &&
+        Objects.equals(this.productionEndYear, trim.productionEndYear) &&
+        Objects.equals(this.markets, trim.markets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(slug, name, trim, body, generation);
+    return Objects.hash(slug, name, trim, body, generation, productionStartYear, productionEndYear, markets);
   }
 
 
@@ -167,6 +244,9 @@ public class Trim {
     sb.append("    trim: ").append(toIndentedString(trim)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    generation: ").append(toIndentedString(generation)).append("\n");
+    sb.append("    productionStartYear: ").append(toIndentedString(productionStartYear)).append("\n");
+    sb.append("    productionEndYear: ").append(toIndentedString(productionEndYear)).append("\n");
+    sb.append("    markets: ").append(toIndentedString(markets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

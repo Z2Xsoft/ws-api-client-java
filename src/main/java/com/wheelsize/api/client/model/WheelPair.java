@@ -51,7 +51,7 @@ public class WheelPair {
    * Show front pair only
    * @return showingFpOnly
   **/
-  @ApiModelProperty(required = true, value = "Show front pair only")
+  @ApiModelProperty(value = "Show front pair only")
   public Boolean isShowingFpOnly() {
     return showingFpOnly;
   }
@@ -69,7 +69,7 @@ public class WheelPair {
    * Original Equipment (OE)
    * @return isStock
   **/
-  @ApiModelProperty(required = true, value = "Original Equipment (OE)")
+  @ApiModelProperty(value = "Original Equipment (OE)")
   public Boolean isIsStock() {
     return isStock;
   }
@@ -87,7 +87,7 @@ public class WheelPair {
    * Get front
    * @return front
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Wheel getFront() {
     return front;
   }
@@ -105,7 +105,7 @@ public class WheelPair {
    * Get rear
    * @return rear
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public Wheel getRear() {
     return rear;
   }

@@ -21,6 +21,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.wheelsize.api.client.model.Body;
+import com.wheelsize.api.client.model.Make;
+import com.wheelsize.api.client.model.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,10 +30,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Generation
+ * GenerationWithMakeAndModel
  */
 
-public class Generation {
+public class GenerationWithMakeAndModel {
+  @SerializedName("make")
+  private Make make = null;
+
+  @SerializedName("model")
+  private Model model = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -47,7 +55,43 @@ public class Generation {
   @SerializedName("years")
   private List<Integer> years = null;
 
-  public Generation name(String name) {
+  public GenerationWithMakeAndModel make(Make make) {
+    this.make = make;
+    return this;
+  }
+
+   /**
+   * Get make
+   * @return make
+  **/
+  @ApiModelProperty(value = "")
+  public Make getMake() {
+    return make;
+  }
+
+  public void setMake(Make make) {
+    this.make = make;
+  }
+
+  public GenerationWithMakeAndModel model(Model model) {
+    this.model = model;
+    return this;
+  }
+
+   /**
+   * Get model
+   * @return model
+  **/
+  @ApiModelProperty(value = "")
+  public Model getModel() {
+    return model;
+  }
+
+  public void setModel(Model model) {
+    this.model = model;
+  }
+
+  public GenerationWithMakeAndModel name(String name) {
     this.name = name;
     return this;
   }
@@ -65,12 +109,12 @@ public class Generation {
     this.name = name;
   }
 
-  public Generation bodies(List<Body> bodies) {
+  public GenerationWithMakeAndModel bodies(List<Body> bodies) {
     this.bodies = bodies;
     return this;
   }
 
-  public Generation addBodiesItem(Body bodiesItem) {
+  public GenerationWithMakeAndModel addBodiesItem(Body bodiesItem) {
     if (this.bodies == null) {
       this.bodies = new ArrayList<Body>();
     }
@@ -91,7 +135,7 @@ public class Generation {
     this.bodies = bodies;
   }
 
-  public Generation startYear(Integer startYear) {
+  public GenerationWithMakeAndModel startYear(Integer startYear) {
     this.startYear = startYear;
     return this;
   }
@@ -109,7 +153,7 @@ public class Generation {
     this.startYear = startYear;
   }
 
-  public Generation endYear(Integer endYear) {
+  public GenerationWithMakeAndModel endYear(Integer endYear) {
     this.endYear = endYear;
     return this;
   }
@@ -127,12 +171,12 @@ public class Generation {
     this.endYear = endYear;
   }
 
-  public Generation years(List<Integer> years) {
+  public GenerationWithMakeAndModel years(List<Integer> years) {
     this.years = years;
     return this;
   }
 
-  public Generation addYearsItem(Integer yearsItem) {
+  public GenerationWithMakeAndModel addYearsItem(Integer yearsItem) {
     if (this.years == null) {
       this.years = new ArrayList<Integer>();
     }
@@ -162,25 +206,29 @@ public class Generation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Generation generation = (Generation) o;
-    return Objects.equals(this.name, generation.name) &&
-        Objects.equals(this.bodies, generation.bodies) &&
-        Objects.equals(this.startYear, generation.startYear) &&
-        Objects.equals(this.endYear, generation.endYear) &&
-        Objects.equals(this.years, generation.years);
+    GenerationWithMakeAndModel generationWithMakeAndModel = (GenerationWithMakeAndModel) o;
+    return Objects.equals(this.make, generationWithMakeAndModel.make) &&
+        Objects.equals(this.model, generationWithMakeAndModel.model) &&
+        Objects.equals(this.name, generationWithMakeAndModel.name) &&
+        Objects.equals(this.bodies, generationWithMakeAndModel.bodies) &&
+        Objects.equals(this.startYear, generationWithMakeAndModel.startYear) &&
+        Objects.equals(this.endYear, generationWithMakeAndModel.endYear) &&
+        Objects.equals(this.years, generationWithMakeAndModel.years);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, bodies, startYear, endYear, years);
+    return Objects.hash(make, model, name, bodies, startYear, endYear, years);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Generation {\n");
+    sb.append("class GenerationWithMakeAndModel {\n");
     
+    sb.append("    make: ").append(toIndentedString(make)).append("\n");
+    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    bodies: ").append(toIndentedString(bodies)).append("\n");
     sb.append("    startYear: ").append(toIndentedString(startYear)).append("\n");
