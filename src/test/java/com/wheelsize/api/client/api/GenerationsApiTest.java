@@ -14,7 +14,7 @@
 package com.wheelsize.api.client.api;
 
 import com.wheelsize.api.client.ApiException;
-import com.wheelsize.api.client.model.Generation;
+import com.wheelsize.api.client.model.GenerationWithMakeAndModel;
 import org.junit.Test;
 import org.junit.Ignore;
 import static org.junit.Assert.*;
@@ -47,7 +47,7 @@ public class GenerationsApiTest {
         String model = "outlander";
         Integer year = null;
         String lang = null;
-        List<Generation> response = api.generationsList(make, model, year, lang);
+        List<GenerationWithMakeAndModel> response = api.generationsList(make, model, year, lang);
 
         // TODO: test validations
         assertTrue("Response list should not be empty", response.size() > 0);
